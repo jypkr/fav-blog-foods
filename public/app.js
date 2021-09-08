@@ -14,13 +14,18 @@ document.getElementById('addItem').addEventListener('click', event => {
 	axios.post('/api/foods', food)
 		.then(() => {
 			const foodElem = document.createElement('div')
-			foodElem
+			foodElem.classList = 'row'
 			foodElem.innerHTML = `
-        <p>${food.name}</p>
-				<img src="${food.img}" alt="food-img"></img>
-				<p>${food.calories}</p>
-				<p>${food.description}</p>
-				<hr>
+				<div class="card" style="width: 18rem;">
+					<div class="card-body justify-content-center">
+						<h5 class="card-subtitle justify-content-center">${food.name} </h5>
+						<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-glasses fa-2x"></i></h6>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">${food.calories} </li>
+							<li class="list-group-item">${food.description} </li>
+							<li class="list-group-item"><img src=${food.img}></img></li>
+							<li class="list-group-item">Comments:</li>
+						</ul>
       `
 			document.getElementById('foods').append(foodElem)
 
@@ -36,12 +41,18 @@ axios.get('/api/foods')
 	.then(({ data: foods }) => {
 		foods.forEach(food => {
 			const foodElem = document.createElement('div')
+			foodElem.classList = 'row'
 			foodElem.innerHTML = `
-        <p>${food.name}</p>
-				<img src="${food.img}" alt="food-img"></img>
-				<p>${food.calories}</p>
-				<p>${food.description}</p>
-				<hr>
+				<div class="card" style="width: 18rem;">
+					<div class="card-body justify-content-center">
+						<h5 class="card-subtitle justify-content-center">${food.name} </h5>
+						<h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-glasses fa-2x"></i></h6>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">${food.calories} </li>
+							<li class="list-group-item">${food.description} </li>
+							<li class="list-group-item"><img src=${food.img}></img></li>
+							<li class="list-group-item">Comments:</li>
+						</ul>
       `
 			document.getElementById('foods').append(foodElem)
 		})
