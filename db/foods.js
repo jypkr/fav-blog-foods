@@ -2,7 +2,9 @@ const foods = [
 	{
 		name: "burrito",
 		img: "url",
-		ingredient: "calories"
+		calories: 0,
+		description: "",
+		comments: []
 	}
 ]
 
