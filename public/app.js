@@ -58,7 +58,14 @@ axios.get('/api/foods')
 							<li class="list-group-item">${food.calories} </li>
 							<li class="list-group-item">${food.description} </li>
 							<li class="list-group-item"><img src=${food.img}></img></li>
-							<li class="list-group-item">Comments:</li>
+							<li class="list-group-item"><form id = "comments">
+                  <p>
+                    <label for= "comment">Add Comment</label>
+                    <input type = "text" name = "comment" id = "comment">
+
+                    </p>
+                  <button  id="addComment" data-text="name">Add</button>
+                  </form></li>
 						</ul>
       `
 			document.getElementById('foods').append(foodElem)
