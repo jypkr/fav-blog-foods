@@ -1,0 +1,42 @@
+.nav {
+  height: 200px;
+  color: black;
+  display: flex;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 50px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  width: 18rem;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 60px;
+  background-color: grey;
+  box-shadow: 2.5px 4px black;
+}
+
+.list-group-item {
+  background-color: white;
+}
+
+.card-header {
+  text-align: center;
+}
+
+.card-subtitle {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
