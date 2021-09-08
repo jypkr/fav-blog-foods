@@ -14,6 +14,7 @@ document.getElementById('addItem').addEventListener('click', event => {
 	axios.post('/api/foods', food)
 		.then(() => {
 			const foodElem = document.createElement('div')
+			foodElem
 			foodElem.innerHTML = `
         <p>${food.name}</p>
 				<img src="${food.img}" alt="food-img"></img>
