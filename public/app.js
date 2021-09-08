@@ -24,14 +24,16 @@ document.getElementById('addItem').addEventListener('click', event => {
 							<li class="list-group-item">${food.calories} </li>
 							<li class="list-group-item">${food.description} </li>
 							<li class="list-group-item"><img src=${food.img}></img></li>
-							<li class="list-group-item"><form id = "comments">
+							<li class="list-group-item" ><form id = "comments">
                   <p>
                     <label for= "comment">Add Comment</label>
-                    <input type = "text" name = "comment" id = "comment">
+                    <input type = "text" name = "comment" id = "comment${food.name}">
 
                     </p>
-                  <button  id="addComment" data-text="name">Add</button>
+                  <button  class="addComment" data-text="${food.name}">Add</button>
                   </form></li>
+									<li class="list-group-item" id ="${food.name}Comment">Comments:</li>
+
 						</ul>
       `
 			document.getElementById('foods').append(foodElem)
@@ -58,25 +60,52 @@ axios.get('/api/foods')
 							<li class="list-group-item">${food.calories} </li>
 							<li class="list-group-item">${food.description} </li>
 							<li class="list-group-item"><img src=${food.img}></img></li>
-							<li class="list-group-item"><form id = "comments">
+							<li class="list-group-item" ><form id = "comments">
                   <p>
                     <label for= "comment">Add Comment</label>
-                    <input type = "text" name = "comment" id = "comment">
+                    <input type = "text" name = "comment" id = "comment${food.name}">
 
                     </p>
-                  <button  id="addComment" data-text="name">Add</button>
+                  <button  class="addComment" data-text="${food.name}">Add</button>
                   </form></li>
+									<li class="list-group-item" id ="${food.name}Comment">Comments:</li>
+									
 						</ul>
       `
 			document.getElementById('foods').append(foodElem)
+			food.comments.forEach( comment =>{
+				let commentElem = document.createElement('p')
+				commentElem.innerHTML= comment
+				document.getElementById(`${food.name}Comment`).append(commentElem)
+			})
+			
 		})
 	})
 	.catch(err => console.error(err))
 
 
-document.getElementById('addComment').addEventListener('click', event => {
+document.addEventListener('click', event => {
 	event.preventDefault()
-	let foodItem = event.target.dataset.text
-	console.log(foodItem)
+	if(event.target.className === "addComment"){
+		
+		let name = event.target.dataset.text
+		let comment = document.getElementById(`comment${name}`).value
+		
+	
+		let foodItem = {
+			name:name,
+			comment: comment
+		}
 
-}
+		axios.put(`/api/foods/${JSON.stringify(foodItem)}`)
+		.then(()=>{
+			let commentElem = document.createElement('p')
+			commentElem.innerHTML = comment
+			document.getElementById(`${name}Comment`).append(commentElem)
+			document.getElementById(`comment${name}`).value=''
+			
+		})
+	}
+
+
+})
