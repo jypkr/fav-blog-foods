@@ -10,6 +10,21 @@ router.post('/foods', (req, res) => {
 	res.sendStatus(200)
 })
 
+router.put('/foods/:foodItem',(req,res)=>{
+	const foodItem = JSON.parse(req.params.foodItem)
+	let name = foodItem.name
+	let comment = foodItem.comment
+	console.log(name,comment)
+	foods.forEach(food=>{
+		if(food.name === name){
+			food.comments.push(comment)
+			console.log(food.comments)
+		}
+	})
+
+	res.sendStatus(200)
+})
+
 // router.put('/foods/:comments', (req, res) => {
 // 	const comments = req.params.comments
 
