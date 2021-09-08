@@ -12,8 +12,7 @@ router.post('/foods', (req, res) => {
 
 router.put('/foods/:name', (req, res) => {
 	const name = req.params.name
-})
-res.sendStatus(200)
+	res.sendStatus(200)
 })
 
 router.delete('/foods/:name', (req, res) => {
