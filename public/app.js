@@ -72,3 +72,11 @@ axios.get('/api/foods')
 		})
 	})
 	.catch(err => console.error(err))
+
+
+document.getElementById('addComment').addEventListener('click', event => {
+	event.preventDefault()
+	let foodItem = event.target.dataset.text
+	console.log(foodItem)
+
+}
