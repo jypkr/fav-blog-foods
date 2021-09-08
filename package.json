@@ -1,0 +1,24 @@
+{
+  "name": "fav-blog-foods",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jypkr/fav-blog-foods.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jypkr/fav-blog-foods/issues"
+  },
+  "homepage": "https://github.com/jypkr/fav-blog-foods#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
