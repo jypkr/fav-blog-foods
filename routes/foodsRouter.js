@@ -11,9 +11,8 @@ router.post('/foods', (req, res) => {
 })
 
 router.put('/foods/:foodItem',(req,res)=>{
-	const foodItem = JSON.parse(req.params.foodItem)
-	let name = foodItem.name
-	let comment = foodItem.comment
+	const {name,comment} = JSON.parse(req.params.foodItem)
+	
 	console.log(name,comment)
 	foods.forEach(food=>{
 		if(food.name === name){
